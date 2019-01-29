@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Rumble in the Java Jungle</title>
+
+    <meta name="description" content="OracleJDK, OpenJDK, AdoptOpenJDK, OpenJ9, Zulu, IcedTea, Liberica, Corretto, SapMachine, GraalVM, SubstrateVM. 8, 9, 10, 11, 12, 18.3, 18.9, short-term, mid-term, long-term support release, security updates. GPLv2, Classpath Exception, Oracle Binary Code License, Technology Network License Agreement. Field of use restriction, private and commercial use, reference implementation, substantially derived, TCK/JCK, Oracle Contribution Agreement, OpenJDK Community TCK License Agreement (OCTLA), Java Community Process (JCP), Java Specification Request (JSR), Java Enhancement Proposal (JEP), Preview Features, Incubator Modules, Java (TM), Java SE compatibility, OpenJDK trademark notice." />
+    <meta name="author" content="Volker H. Simonis" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/css/theme/joker2017.css" id="theme" />
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/monokai_sublime.css" />
+    <!-- Local overrides -->
+    <link rel="stylesheet" href="css/local.css" />
+
+    <style type="text/css">
+
+ .reveal table.simple tr {
+    border-bottom: 2px solid;
+  }
+ .reveal table.simple th {
+    text-align: center;
+    border-bottom: 0p;
+  }
+ .reveal  table.simple td {
+    text-align: left;
+    border-bottom: 0px;
+  }
+ .reveal  table.simple td.center {
+    text-align: center;
+    border-bottom: 0px;
+  }
+/*
+ .reveal table tr :hover {
+    font-size: 200%;
+  }
+*/
+
+ .reveal table tr.JEP_SE {
+    background-color: #b0ffb0;
+  }
+ .reveal table tr.JEP_JDK {
+    background-color: yellow;
+  }
+ .reveal table tr.JEP_Implementation {
+    background-color: #f0f0f0;
+  }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!--
+      Issue #1105: Keyboard shortcut to skip forward/back over fragments #1173
+      https://github.com/hakimel/reveal.js/pull/1173
+    -->
+  </head>
+
+
+<!--
+;; indent block of text
+;; C-u <number> C-x <TAB>
+
+
+
+;; select this code and do 'M-x eval-region'
+(defun make-fragment (p1 p2)
+  "Wraps the selection into 'fragment' <span>s and quotes '&', '<' and '>'."
+  (interactive "r")
+  (setq inputStr (buffer-substring-no-properties p1 p2))
+  (setq inputStr (replace-regexp-in-string "&" "&amp;" inputStr))
+  (setq inputStr (replace-regexp-in-string "<" "&lt;" inputStr))
+  (setq inputStr (replace-regexp-in-string ">" "&gt;" inputStr))
+  (setq resultStr (concat "<span class=\"fragment\">" (concat inputStr "</span>")))
+  (delete-region p1 p2)
+  (insert resultStr)
+)
+(defun make-fragment-simple (p1 p2)
+  "Wraps the selection into 'fragment' <span>s without any quoting."
+  (interactive "r")
+  (setq inputStr (buffer-substring-no-properties p1 p2))
+  (setq resultStr (concat "<span class=\"fragment\">" (concat inputStr "</span>")))
+  (delete-region p1 p2)
+  (insert resultStr)
+)
+(defun quote-fragment (p1 p2)
+  "Quotes '&', '<' and '>'."
+  (interactive "r")
+  (setq inputStr (buffer-substring-no-properties p1 p2))
+  (setq inputStr (replace-regexp-in-string "&" "&amp;" inputStr))
+  (setq inputStr (replace-regexp-in-string "<" "&lt;" inputStr))
+  (setq inputStr (replace-regexp-in-string ">" "&gt;" inputStr))
+  (delete-region p1 p2)
+  (insert inputStr)
+)
+
+(global-set-key (kbd "C-f") 'make-fragment)
+(global-set-key (kbd "C-S-f") 'make-fragment-simple)
+(global-set-key (kbd "C-S-q") 'quote-fragment)
+;; revert key-binding
+;; (global-set-key (kbd "C-f") 'forward-char)
+;;
+;; use 'C-h k <keystroke>' to find out what <keystroke> ia currently bound to
+
+;; (vhs) The following is required to make 'C-c C-t' insert <code> tags without
+;; newlines. 'sgml-tag-alist' is the "file-local" version of 'html-tag-alist'
+(add-to-list 'html-tag-alist '("code"))
+(add-to-list 'sgml-tag-alist '("code"))
+
+-->
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+
+        <section>
+          <h2>Rumble in the</h2>
+          <object data="images/Java_programming_language_logo_wiki_text_orange.svg" type="image/svg+xml" style="width: 20%;">&nbsp;</object>
+          <h1>Jungle</h1>
+          <p>
+            <small>Volker Simonis, SAP / <a href="mailto:volker.simonis@gmail.com">volker.simonis@gmail.com</a></small>
+          </p>
+        </section>
+
+
+        <section>
+
+          <h3 style="text-transform: none;"><a href="https://simonis.github.io/FOSDEM2019">https://simonis.github.io/FOSDEM2019</a></h3>
+
+        </section>
+
+
+        <section style="height:100%" data-background="images/OpenJDK_Licensing.png">
+        </section>
+
+
+      </div>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        width: 1024,
+        height: 768,
+        //width: 1280,
+        //height: 720,
+        //width: 1366,
+        //height: 768,
+        //width: 1920,
+        //height: 1080,
+        //margin: 0.1, // Old setting which was used in the reveal.js version used for the JET2015 presentation
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: true,
+
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() {
+
+hljs.registerLanguage('terminal', function(hljs) {
+  return {
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      {
+        className: 'title',
+        lexemes: /[$()>_a-zA-Z0-9]+/,
+        keywords: "$ (gdb) hsdb>",
+        begin: /^\$ |\(gdb\)|hsdb> /,
+        end: /[^\\]\n/,
+	contains: [
+          hljs.COMMENT('//', '$', { endsParent: true })
+	]
+      }
+    ]
+  }
+});
+
+hljs.initHighlightingOnLoad(); } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+
+      //Reveal.configure({ slideNumber: true });
+    </script>
+
+  </body>
+</html>
+
+<!--  LocalWords:  OpenJDK scrollable px pre hljs noshadow li img fff
+ -->
+<!--  LocalWords:  bd hirarchy monospace arial helvetica ffffff td os
+ -->
+<!--  LocalWords:  functionCall darkblue javaCall darkgreen ffa GPLv
+ -->
+<!--  LocalWords:  rowspan Volker Simonis Classpath implementers Azul
+ -->
+<!--  LocalWords:  RedHat InvokeDynamic Nashorn Graal Shanandoa JDK
+ -->
+<!--  LocalWords:  IcedTea distros AdoptOpenJDK JVM OCA OSI TCK OCTLA
+ -->
+<!--  LocalWords:  Duimovich SUNY Oswego Committers jdk Webrev corba
+ -->
+<!--  LocalWords:  hotspot jaxp jaxws langtools nashorn JEP repo html
+ -->
+<!--  LocalWords:  parallelized MacOS README JCK JUnit TestNG webrev
+ -->
+<!--  LocalWords:  Korn JBS AWT JIT RFR AIX Roadmap JCP JSR JEPs GCs
+ -->
+<!--  LocalWords:  JITs EE dev libs
+ -->
