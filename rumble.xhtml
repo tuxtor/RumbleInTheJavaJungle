@@ -53,7 +53,27 @@
   }
  .reveal table tr.JEP_Implementation {
     background-color: #f0f0f0;
-  }
+ }
+
+ .blink {
+   animation-name: blink;
+   animation-duration: .5s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+ }
+ @keyframes blink {
+   50% {
+     opacity: 0;
+   }
+ }
+ .reveal .slides section .fragment.highlight-line-through {
+   opacity: 1;
+   visibility: inherit;
+ }
+
+ .reveal .slides section .fragment.highlight-line-through.visible {
+   text-decoration-line: line-through;
+ }
     </style>
 
     <!-- Printing and PDF exports -->
@@ -153,6 +173,73 @@
         </section>
 
 
+        <section>
+          <h1>What is Java<span class="fragment blink" data-fragment-index="5">&#8482;</span> ?</h1>
+
+            <div style="width: 80%; margin: auto">
+              <div style="float: left; width: 50%">
+
+                <ol style="font-size: larger;">
+                  <li class="fragment" data-fragment-index="1">Programming Language</li>
+                  <li class="fragment" data-fragment-index="2">Virtual Machine / Runtime</li>
+                  <li class="fragment" data-fragment-index="3">Class Library / API</li>
+                </ol>
+
+              </div>
+              <div class="fragment" data-fragment-index="4" style="position:relative; float: left; width: 10%">
+
+                <ol style="font-size: larger; list-style-type: none; border-right: 3px solid #93a1a1; border-radius: 16px;">
+                  <li>&nbsp;</li>
+                  <li>&nbsp;</li>
+                  <li>&nbsp;</li>
+                </ol>
+
+              </div>
+              <div class="fragment" data-fragment-index="4" style="position:relative; float: left; width: 30%">
+
+                <ol style="font-size: larger; list-style-type: none; margin: 0; float: left;">
+                  <li>&nbsp;</li>
+                  <li class="bold">Java<span class="fragment blink" data-fragment-index="5">&#8482;</span> Platform</li>
+                  <li>&nbsp;</li>
+                </ol>
+
+              </div>
+            </div>
+
+        </section>
+
+
+        <section>
+          <h1><a href="https://www.jcp.org/">JCP - Java Community Process</a></h1>
+
+          <ul style="font-size: larger;">
+            <li class="fragment" data-fragment-index="0">Formalized mechanism for developing Java specifications</li>
+            <li class="fragment" data-fragment-index="1"><b>Not</b> standards organization / legal entity - dominated by Oracle</li>
+            <li class="fragment" data-fragment-index="2"><a href="https://www.jcp.org/en/jsr/overview">JSR - Java Specification Request:</a>
+              <ul>
+                <li class="fragment" data-fragment-index="3">Specification, Reference Implementation &amp; TCK</li>
+                <li class="fragment" data-fragment-index="4"><a href="https://en.wikipedia.org/wiki/Technology_Compatibility_Kit">TCK</a> - Technology Compatibility Kit</li>
+              </ul>
+            </li>
+            <li class="fragment" data-fragment-index="5">Criticized as "<em>rubber stamp organization</em>", but:
+              <ul>
+                <li class="fragment" data-fragment-index="6"><a href="https://en.wikipedia.org/wiki/Apache_Harmony#Difficulties_to_obtain_a_TCK_license_from_Sun">Apache vs. Sun on getting access to the TCK</a></li>
+                <li class="fragment" data-fragment-index="7"><a href="https://www.jcp.org/en/jsr/results?id=5959">JCP EC rejects JSR 376 (Jigsaw)</a></li>
+              </ul>
+            </li>
+            <li class="fragment" data-fragment-index="8">Three Java platforms:
+              <span class="fragment highlight-line-through" data-fragment-index="10" style="text-decoration-style: wavy;"><a href="https://www.jcp.org/en/jsr/platform?listBy=1&amp;listByType=platform">Java ME</a></span>,
+              <span class="fragment highlight-border" data-fragment-index="11"><a href="https://www.jcp.org/en/jsr/platform?listBy=2&amp;listByType=platform">Java SE</a></span> and
+              <span class="fragment highlight-line-through" data-fragment-index="9" style="text-decoration-style: wavy;"><a href="https://www.jcp.org/en/jsr/platform?listBy=3&amp;listByType=platform">Java EE</a></span> <span class="fragment" data-fragment-index="9">&#8658; <a href="https://projects.eclipse.org/projects/ee4j">EE4J</a></span>
+            </li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h1><a href="https://openjdk.java.net/">OpenJDK</a></h1>
+        </section>
+
         <section style="height:100%" data-background="images/OpenJDK_Licensing.png">
         </section>
 
@@ -168,10 +255,10 @@
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        width: 1024,
-        height: 768,
-        //width: 1280,
-        //height: 720,
+        //width: 1024,
+        //height: 768,
+        width: 1280,
+        height: 720,
         //width: 1366,
         //height: 768,
         //width: 1920,
