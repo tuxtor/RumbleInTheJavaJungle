@@ -230,7 +230,7 @@
             <li class="fragment" data-fragment-index="8">Three Java platforms:
               <span class="fragment highlight-line-through" data-fragment-index="10" style="text-decoration-style: wavy;"><a href="https://www.jcp.org/en/jsr/platform?listBy=1&amp;listByType=platform">Java ME</a></span>,
               <span class="fragment highlight-border" data-fragment-index="11"><a href="https://www.jcp.org/en/jsr/platform?listBy=2&amp;listByType=platform">Java SE</a></span> and
-              <span class="fragment highlight-line-through" data-fragment-index="9" style="text-decoration-style: wavy;"><a href="https://www.jcp.org/en/jsr/platform?listBy=3&amp;listByType=platform">Java EE</a></span> <span class="fragment" data-fragment-index="9">&#8658; <a href="https://projects.eclipse.org/projects/ee4j">EE4J</a></span>
+              <span class="fragment highlight-line-through" data-fragment-index="9" style="text-decoration-style: wavy;"><a href="https://www.jcp.org/en/jsr/platform?listBy=3&amp;listByType=platform">Java EE</a></span> <span class="fragment" data-fragment-index="9">&#8658;<a href="https://projects.eclipse.org/projects/ee4j">EE4J</a></span>
             </li>
           </ul>
         </section>
@@ -238,12 +238,128 @@
 
         <section>
           <h1><a href="https://openjdk.java.net/">OpenJDK</a></h1>
+
+          <ul style="font-size: larger">
+            <li class="fragment">Java SE reference implementation (since Java 7)</li>
+            <li class="fragment"><a href="http://openjdk.java.net/legal/gplv2+ce.html">GPLv2 plus Classpath Exception</a></li>
+            <li class="fragment">"Source-only" project (until Java 8)
+              <ul>
+                <li class="fragment">Since Java 9 binaries for Linux/x64, MacOS, Windows <br/><span class="fragment"> &#8658; Two updates only!</span></li>
+              </ul>
+            </li>
+            <li class="fragment">Binary distributions from various vendors</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h1>OpenJDK Updates Projects</h1>
+
+          <ul style="font-size: larger">
+            <li class="fragment"><a href="http://openjdk.java.net/projects/jdk6">JDK 6</a> &#8658; maintained by Azul</li>
+            <li class="fragment"><a href="http://openjdk.java.net/projects/jdk7u">JDK 7 Updates</a> &#8658; maintained by Red Hat</li>
+            <li class="fragment"><a href="http://openjdk.java.net/projects/jdk8u">JDK 8 Updates</a> &#8658; maintained by Red Hat</li>
+            <li class="fragment"><span style="text-decoration-line: line-through; text-decoration-style: wavy;"><a href="http://openjdk.java.net/projects/jdk-updates/archive.html">JDK 9 Updates</a></span> &#8658; abandoned after two releases</li>
+            <li class="fragment"><span style="text-decoration-line: line-through; text-decoration-style: wavy;"><a href="http://openjdk.java.net/projects/jdk-updates/archive.html">JDK 10 Updates</a></span> &#8658; abandoned after two releases</li>
+            <li class="fragment"><a href="http://openjdk.java.net/projects/jdk-updates/">JDK 11 Updates</a> &#8658; ???</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h1><a href="https://www.oracle.com/technetwork/java/javase/overview/index.html">Oracle JDK</a></h1>
+
+          <ul style="font-size: larger">
+            <li class="fragment">Derived from Open JDK
+              <ul>
+                <li class="fragment">with non - Java SE addons (e.g. JavaFX, WebStart)</li>
+                <li class="fragment">and <em>commercial features</em> (e.g. Flight Recorder, Mission Control)</li>
+              </ul>
+            </li>
+            <li class="fragment">Under <a href="https://www.oracle.com/technetwork/java/javase/terms/license/index.html">Oracle Binary Code License</a> (until 8u202)
+              <ul>
+                <li class="fragment">Allows commercial use but<br/><span class="fragment">&#8658; Field of Use restrictions may apply</span></li>
+              </ul>
+            </li>
+            <li class="fragment">Under <a href="https://www.oracle.com/technetwork/java/javase/terms/license/javase-license.html">Oracle Technology Network License</a> (after 8u202)
+              <ul>
+                <li class="fragment"><b>Only</b> for personal / development use!</li>
+              </ul>
+            </li>
+          </ul>
         </section>
 
         <section style="height:100%" data-background="images/OpenJDK_Licensing.png">
         </section>
 
 
+        <section>
+          <h1><a href="https://openjdk.java.net/groups/conformance/JckAccess">JCK - Java Compatibility Kit</a></h1>
+
+          <ul style="font-size: larger">
+            <li>TCK for Java SE conformance certification</li>
+            <li>Available only to commercial Java licensees or</li>
+            <li>OpenJDK Community TCK License Agreement (OCTLA) signatories
+              <ul>
+                <li>Only for GPL licensed implementations<br/><em>substantially derived</em> from the OpenJDK</li>
+                <li>Closed Source; OCTLA &#8658; NDA agreement</li>
+              </ul>
+            </li>
+            <li>Complex test suite (~140_000 tests, <a href="https://openjdk.java.net/groups/conformance/docs/JCK6bUsersGuide/JCK6b_Users_Guide.pdf">JCK 6 Users Guide</a> ~300p)</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h1>Java Versioning</h1>
+
+          <ul style="font-size: larger">
+            <li>Good old days: 6, 7, 8, but <a href="https://www.oracle.com/technetwork/java/javase/overview/jdk-version-number-scheme-1918258.html">Updates Version scheme</a> complex:
+              <ul>
+                <li class="fragment" data-fragment-index="1">Limited update releases<span class="fragment" data-fragment-index="2" style="font-weight: bold;">, Critical Patch Updates<span  class="fragment" data-fragment-index="3" style="font-weight: normal; font-style: italic;">, Patch Set Update</span></span><br/>
+                  <span class="fragment" data-fragment-index="1">8u20, <span class="fragment" data-fragment-index="2" style="font-weight: bold;">8u25, 8u31,</span> 8u40, <span class="fragment" data-fragment-index="2" style="font-weight: bold;">8u45, 8u51,</span> 8u60, <span class="fragment" data-fragment-index="2" style="font-weight: normal;">8u65<span class="fragment" data-fragment-index="3" style="font-style: italic;">, 8u66</span></span></span>
+                </li>
+              </ul>
+            </li>
+            <li><a href="https://openjdk.java.net/jeps/223">JEP 223: New Version-String Scheme</a>
+              <ul>
+                <li>9, 9.0.1, 9.0.4</li>
+              </ul>
+            </li>
+            <li><a href="https://openjdk.java.net/jeps/322">JEP 322: Time-Based Release Versioning</a>
+              <ul>
+                <li>Introduced <code>java.vendor.version</code> &amp; the notion of LTS</li>
+                <li>10 (18.3), 10.0.1 (18.3), 10.0.2 (18.3)</li>
+                <li>11 LTS (18.9), 11.0.1 LTS (18.9), 10.0.2 LTS (18.9)</li>
+              </ul>
+            </li>
+            <li><a href="https://bugs.openjdk.java.net/browse/JDK-8216383">8216383: Remove the system property "java.vendor.version"</a></li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h1>Java Versioning</h1>
+
+        </section>
+
+
+        <section>
+          <h1><a href="https://openjdk.java.net/">OpenJDK</a></h1>
+        </section>
+
+
+        <section>
+          <h1><a href="https://openjdk.java.net/">OpenJDK</a></h1>
+        </section>
+
+<!--
+AdoptOpenJDK, OpenJ9, Zulu, IcedTea, Liberica, Coretto, SapMachine, GraalVM, SubstrateVM. 8, 9, 10, 11, 12, 18.3, 18.9, short-term, mid-term, long-term support release, security updates. Oracle Contribution Agreement,  Java Enhancement Proposal (JEP), Preview Features, Incubator Modules, OpenJDK trademark notice.
+
+OracleJDK, OpenJDK, GPLv2, Classpath Exception, Oracle Binary Code License, Technology Network License Agreement. Field of use restriction, private and commercial use, reference implementation, substantially derived, TCK/JCK, OpenJDK Community TCK License Agreement (OCTLA), Java Community Process (JCP), Java (TM), Java SE compatibility, Java Specification Request (JSR),
+
+
+-->
       </div>
     </div>
 
