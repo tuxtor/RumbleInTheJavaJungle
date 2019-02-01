@@ -1,0 +1,18 @@
+Summary,Custom field (Scope)
+JEP 181: Nest-Based Access Control,SE
+JEP 309: Dynamic Class-File Constants,SE
+JEP 315: Improve Aarch64 Intrinsics,Implementation
+JEP 318: Epsilon: A No-Op Garbage Collector (Experimental),Implementation
+JEP 320: Remove the Java EE and CORBA Modules,SE
+JEP 321: HTTP Client (Standard),SE
+JEP 323: Local-Variable Syntax for Lambda Parameters,SE
+JEP 324: Key Agreement with Curve25519 and Curve448,SE
+JEP 327: Unicode 10,SE
+JEP 328: Flight Recorder,JDK
+JEP 329: ChaCha20 and Poly1305 Cryptographic Algorithms,SE
+JEP 330: Launch Single-File Source-Code Programs,JDK
+JEP 331: Low-Overhead Heap Profiling,JDK
+JEP 332: Transport Layer Security (TLS) 1.3,SE
+JEP 333: ZGC: A Scalable Low-Latency Garbage Collector (Experimental),Implementation
+JEP 335: Deprecate the Nashorn JavaScript Engine,JDK
+JEP 336: Deprecate the Pack200 Tools and API,SE
