@@ -586,7 +586,26 @@
 
 
         <section>
-          <h1>Preview Features &amp; Incubator Modules</h1>
+          <h2>Preview Features &amp; Incubator Modules</h2>
+
+          <ul>
+              <li><a href="http://openjdk.java.net/jeps/11">JEP 11: Incubator Modules</a>
+                <ul>
+                  <li>Ship non-final APIs to developers to get feedback</li>
+                  <li>Use <code>jdk.incubator</code> prefix for modules and exported packages</li>
+                  <li>API must be either finalized, substantially improved or removed in the next release</li>
+                  <li><b>Not part of the Java SE standard!</b></li>
+               </ul>
+              </li>
+              <li><a href="http://openjdk.java.net/jeps/12">JEP 12: Preview Language and VM Features</a>
+                <ul>
+                  <li>Fully specified, fully implemented, yet impermanent features</li>
+                  <li><b>Part of Java SE platform</b>, checked by the corresponding TCK</li>
+                  <li>Disabled by default (use <code>--enable-preview</code> flag)</li>
+                </ul>
+              </li>
+            </ul>
+
         </section>
 
 
@@ -711,68 +730,101 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
           <h1>Java Release &amp; OpenJDK Support Model</h1>
 
           <ul class="larger">
-            <li>short-term, mid-term, long-term support release</li>
+            <li>short-term, medium-term, long-term support release</li>
             <li>security updates / Vulnerability Group</li>
           </ul>
         </section>
 
 
         <section>
-          <h1>IcedTea</h1>
+          <h1><a href="https://icedtea.classpath.org">IcedTea</a></h1>
 
           <ul class="larger">
-            <li></li>
-            <li></li>
+            <li>Maintained by Red Hat
+              <ul>
+                <li>Supported through General Support Contract</li>
+              </ul>
+            </li>
+            <li>Java 7 to 11</li>
+            <li>First OpenJDK "build harness"</li>
+            <li>Base of most Linux OpenJDK packages</li>
+            <li>Extra features (e.g. Shenandoah, IcedTea-Web) and platforms (e.g Aarch64)</li>
+            <li>Linux and <a href="https://developers.redhat.com/products/openjdk/download/">Windows</a>support</li>
           </ul>
         </section>
 
 
         <section>
-          <h1>AdoptOpenJDK / OpenJ9</h1>
+          <h1><a href="https://adoptopenjdk.net/">AdoptOpenJDK</a> / <a href="https://www.eclipse.org/openj9/">OpenJ9</a></h1>
 
           <ul class="larger">
-            <li></li>
-            <li></li>
+            <li>Maintained by the <a href="https://adoptopenjdk.net/about.html">AdoptOpenJDK Community</a></li>
+            <li>Prebuilt OpenJDK/HotSpot and OpenJDK/OpenJ9 binaries</li>
+            <li>Java 8 to 11</li>
+            <li>Linux, Windows, MacOS, Solaris, AIX</li>
+            <li>x64, x64, Aarch64, Sparc, s390x, ppc64le</li>
+            <li>Pure down-stream build with own build &amp; test harness</li>
+            <li>IBM offers support for OpenJ9 based releases</li>
           </ul>
         </section>
 
 
         <section>
-          <h1>Zulu</h1>
+          <h1><a href="https://www.azul.com/products/zulu-enterprise/">Zulu Enterprise</a>
+            &amp; <a href="https://www.azul.com/products/zulu-embedded/">Zulu Embedded</a></h1>
 
           <ul class="larger">
-            <li></li>
-            <li></li>
+            <li>Maintained by Azul (commercial support available)</li>
+            <li>Java 6 to 11 (with OpenFX)</li>
+            <li>Linux, Windows, MacOS, Solaris, QNX</li>
+            <li>x64, x64, SPARC, ARM, Aarch64, Mips, ppc32</li>
+            <li>LTS and MTS (<a href="https://www.azul.com/products/azul_support_roadmap/">Medium Term Support</a>)</li>
+            <li><em>Private source</em> development model</li>
           </ul>
         </section>
 
 
         <section>
-          <h1>Coretto</h1>
+          <h1><a href="https://aws.amazon.com/corretto/">Coretto</a></h1>
 
           <ul class="larger">
-            <li></li>
-            <li></li>
+            <li>Maintained by Amazon
+              <ul>
+                <li>Supported through General Support Contract</li>
+              </ul>
+            </li>
+            <li>Currently only 8, 11 planned for mid-2019</li>
+            <li>Linux, Windows, MacOS</li>
+            <li>Open GitHub repo with a few add-ons and fixes</li>
           </ul>
         </section>
 
 
         <section>
-          <h1>Liberica</h1>
+          <h1><a href="https://www.bell-sw.com/pages/java-11.0.2/">Liberica</a></h1>
 
           <ul class="larger">
-            <li></li>
-            <li></li>
+            <li>Maintained by Bell-Soft (commercial support available)</li>
+            <li>Java 8 to 11 (with OpenFX)</li>
+            <li>Linux, Windows, MacOS, Solaris</li>
+            <li>x64, x64, SPARC, ARM, Aarch6</li>
           </ul>
         </section>
 
 
         <section>
-          <h1>SapMachine</h1>
+          <h1><a href="https://sapmachine.io">SapMachine</a></h1>
 
           <ul class="larger">
-            <li></li>
-            <li></li>
+            <li>Maintained by SAP
+              <ul>
+                <li>Supported through General Support Contract</li>
+              </ul>
+            </li>
+            <li>Java 10, 11, ...</li>
+            <li>Linux, Windows, MacOS</li>
+            <li>x64, ppc64, ppc64le</li>
+            <li>Open GitHub repo with a few add-ons and fixes and downports</li>
           </ul>
         </section>
 
@@ -781,11 +833,11 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
           <h1>Others</h1>
 
           <ul class="larger">
-            <li>Graal/Substrate VM</li>
-            <li>Jikes RVM</li>
-            <li>Cacao</li>
-            <li>JamVM</li>
-            <li>Apache Harmony</li>
+            <li><a href="https://www.graalvm.org/">Graal/Substrate VM</a></li>
+            <li><a href="https://www.jikesrvm.org/">Jikes RVM</a></li>
+            <li><a href="http://www.cacaojvm.org/">Cacao</a></li>
+            <li><a href="http://jamvm.sourceforge.net/">JamVM</a></li>
+            <li><a href="http://harmony.apache.org/">Apache Harmony</a></li>
             <li>Wiki "<a href="https://en.wikipedia.org/wiki/List_of_Java_virtual_machines">List of Java Virtual Machines</a>"</li>
           </ul>
         </section>
@@ -795,12 +847,12 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
           <h1>Commercial JDKs</h1>
 
           <ul class="larger">
-            <li>Oracle JDK</li>
-            <li>IBM J9</li>
-            <li>SAP JVM</li>
-            <li>HP JDK</li>
-            <li>Excelsior JET</li>
-            <li>Jamaika VM</li>
+            <li><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle JDK</a></li>
+            <li><a href="https://www.ibm.com/developerworks/java/jdk/">IBM Java SDK</a> (IBM J9)</li>
+            <li><a href="https://tools.hana.ondemand.com/#cloud">SAP JVM</a></li>
+            <li><a href="https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=HPUXJAVAHOME">HP JDK</a></li>
+            <li><a href="https://www.excelsiorjet.com/">Excelsior JET</a></li>
+            <li><a href="https://www.aicas.com/cms/en/JamaicaVM">Jamaika VM</a></li>
           </ul>
         </section>
 
