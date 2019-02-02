@@ -45,6 +45,48 @@
   }
 */
 
+.reveal .slides section .fragment.highlight-border, .reveal .slides section .fragment.highlight-current-border {
+  opacity: 1;
+  visibility: visible;
+  /* Define a transparent border with the same size for inactive fragments such that we have no size changes when the fragments get displayed */
+  border-width: 3px 3px 3px 3px;
+  border-style: solid;
+  border-color: transparent;
+  /* Use a negative margin with the same size as the border to avoid size changes of elements with borders or when the border is set dynamically by fragments */
+  margin: -3px;
+}
+.reveal .slides section .fragment.highlight-border.visible {
+  border: 3px solid #1B91FF;
+  border-radius: 10px;
+  margin: 3px -3px 3px -3px;
+}
+.reveal .slides section .fragment.highlight-current-border.current-fragment {
+  border: 3px solid #1B91FF;
+  border-radius: 10px;
+  margin: -3px;
+}
+.reveal .slides section .fragment.highlight-current-border.border-no-top.current-fragment {
+  border-style: solid;
+  border-color: transparent #1B91FF #1B91FF #1B91FF;
+  border-width: 3px;
+  border-radius: 0px 0px 10px 10px;
+  margin: -3px;
+}
+.reveal .slides section .fragment.highlight-current-border.border-no-bottom.current-fragment {
+  border-style: solid;
+  border-color: #1B91FF #1B91FF transparent #1B91FF;
+  border-width: 3px;
+  border-radius: 10px 10px 0px 0px;
+  margin: -3px;
+}
+.reveal .slides section .fragment.highlight-current-border.border-no-bottom-top.current-fragment {
+  border-style: solid;
+  border-color: transparent #1B91FF transparent #1B91FF;
+  border-width: 3px;
+  border-radius: 0px 0px 0px 0px;
+  margin: -3px;
+}
+
  .reveal table tr.JEP_SE {
     background-color: #b0ffb0;
   }
@@ -74,10 +116,28 @@
  .reveal .slides section .fragment.highlight-line-through.visible {
    text-decoration-line: line-through;
  }
+ .reveal .slides section .fragment.popup {
+   display: none;
+ }
+
+ .reveal .slides section .fragment.popup.visible {
+   display: inline;
+ }
 
  .reveal .slides section .larger {
    font-size: larger;
  }
+.reveal h1 {
+  font-size: 2.5em; }
+
+.reveal h2 {
+  font-size: 2.0em; }
+
+.reveal h3 {
+  font-size: 1.6em; }
+
+.reveal h4 {
+  font-size: 1.3em; }
     </style>
 
     <!-- Printing and PDF exports -->
@@ -161,7 +221,7 @@
 
 
         <section>
-          <h2>Rumble in the</h2>
+          <h3>Rumble in the</h3>
           <object data="images/Java_programming_language_logo_wiki_text_orange.svg" type="image/svg+xml" style="width: 20%;">&nbsp;</object>
           <h1>Jungle</h1>
           <p>
@@ -181,7 +241,7 @@
           <h1>What is Java<span class="fragment blink" data-fragment-index="5">&#8482;</span> ?</h1>
 
             <div style="width: 80%; margin: auto">
-              <div style="float: left; width: 50%">
+              <div style="float: left; width: 60%">
 
                 <ol class="larger">
                   <li class="fragment" data-fragment-index="1">Programming Language</li>
@@ -190,16 +250,16 @@
                 </ol>
 
               </div>
-              <div class="fragment" data-fragment-index="4" style="position:relative; float: left; width: 10%">
+              <div class="fragment" data-fragment-index="4" style="position:relative; float: left; width: 5%">
 
-                <ol class="larger" style="list-style-type: none; border-right: 3px solid #93a1a1; border-radius: 16px;">
+                <ol class="larger" style="list-style-type: none; border-right: 3px solid #93a1a1; border-radius: 16px; margin: 0;">
                   <li>&nbsp;</li>
                   <li>&nbsp;</li>
                   <li>&nbsp;</li>
                 </ol>
 
               </div>
-              <div class="fragment" data-fragment-index="4" style="position:relative; float: left; width: 30%">
+              <div class="fragment" data-fragment-index="4" style="position:relative; float: left; width: 35%">
 
                 <ol class="larger" style="list-style-type: none; margin: 0; float: left;">
                   <li>&nbsp;</li>
@@ -214,11 +274,11 @@
 
 
         <section>
-          <h1><a href="https://www.jcp.org/">JCP - Java Community Process</a></h1>
+          <h2><a href="https://www.jcp.org/">JCP - Java Community Process</a></h2>
 
           <ul class="larger">
-            <li class="fragment" data-fragment-index="0">Formalized mechanism for developing Java specifications</li>
-            <li class="fragment" data-fragment-index="1"><b>Not</b> standards organization / legal entity - dominated by Oracle</li>
+            <li class="fragment" data-fragment-index="0">Mechanism for developing Java specifications</li>
+            <li class="fragment" data-fragment-index="1"><b>No</b> standards body / legal entity - dominated by Oracle</li>
             <li class="fragment" data-fragment-index="2"><a href="https://www.jcp.org/en/jsr/overview">JSR - Java Specification Request:</a>
               <ul>
                 <li class="fragment" data-fragment-index="3">Specification, Reference Implementation &amp; TCK</li>
@@ -231,10 +291,10 @@
                 <li class="fragment" data-fragment-index="7"><a href="https://www.jcp.org/en/jsr/results?id=5959">JCP EC rejects JSR 376 (Jigsaw)</a></li>
               </ul>
             </li>
-            <li class="fragment" data-fragment-index="8">Three Java platforms:
+            <li class="fragment" data-fragment-index="8">3 Java platforms:
               <span class="fragment highlight-line-through" data-fragment-index="10" style="text-decoration-style: wavy;"><a href="https://www.jcp.org/en/jsr/platform?listBy=1&amp;listByType=platform">Java ME</a></span>,
               <span class="fragment highlight-border" data-fragment-index="11"><a href="https://www.jcp.org/en/jsr/platform?listBy=2&amp;listByType=platform">Java SE</a></span> and
-              <span class="fragment highlight-line-through" data-fragment-index="9" style="text-decoration-style: wavy;"><a href="https://www.jcp.org/en/jsr/platform?listBy=3&amp;listByType=platform">Java EE</a></span> <span class="fragment" data-fragment-index="9">&#8658;<a href="https://projects.eclipse.org/projects/ee4j">EE4J</a></span>
+              <span class="fragment highlight-line-through" data-fragment-index="9" style="text-decoration-style: wavy;"><a href="https://www.jcp.org/en/jsr/platform?listBy=3&amp;listByType=platform">Java EE</a></span> <span class="fragment" data-fragment-index="9">&#8658; <a href="https://projects.eclipse.org/projects/ee4j">EE4J</a></span>
             </li>
           </ul>
         </section>
@@ -244,16 +304,18 @@
           <h1><a href="https://openjdk.java.net/groups/conformance/JckAccess">JCK - Java Compatibility Kit</a></h1>
 
           <ul class="larger">
-            <li>TCK for Java SE conformance certification</li>
-            <li>Available only to commercial Java licensees or</li>
-            <li>OpenJDK Community TCK License Agreement (OCTLA) signatories
+            <li class="fragment">TCK for Java SE conformance certification</li>
+            <li class="fragment">Available only to commercial Java licensees or</li>
+            <li class="fragment">OpenJDK Community TCK License Agreement (OCTLA)
               <ul>
-                <li>Only for GPL licensed implementations<br/><em>substantially derived</em> from the OpenJDK</li>
-                <li>Closed Source; OCTLA &#8658; NDA agreement</li>
+                <li class="fragment">Only for GPL licensed implementations<br/><em>substantially derived</em> from the OpenJDK</li>
+                <li class="fragment">See <a href="https://www.reddit.com/r/java/comments/9odebq/the_openjdk_community_tck_license_agreement_octla/">Oracle vs. AdoptOpenJDK dispute</a>
+                </li>
+                <li class="fragment">Closed Source; OCTLA &#8658; NDA agreement</li>
               </ul>
             </li>
-            <li>Complex test suite (~140_000 tests, <a href="https://openjdk.java.net/groups/conformance/docs/JCK6bUsersGuide/JCK6b_Users_Guide.pdf">JCK 6 Users Guide</a> ~300p)</li>
-            <li>Conformance &ne; Quality !</li>
+            <li class="fragment">Complex (~140_000 tests, <a href="https://openjdk.java.net/groups/conformance/docs/JCK6bUsersGuide/JCK6b_Users_Guide.pdf">JCK 6 Users Guide</a> ~300p)</li>
+            <li class="fragment">Conformance &ne; Quality !</li>
           </ul>
         </section>
 
@@ -263,29 +325,32 @@
 
 
           <ul class="larger">
-            <li>There's one <em>umbrella</em> JSR per Java release
+            <li class="fragment">There's one <em>umbrella</em> JSR per Java release
               <ul>
-                <li>New Features are developed in the OpenJDK</li>
+                <li class="fragment">New Features are developed in the OpenJDK</li>
               </ul>
             </li>
-            <li>JEP - JDK Enhancement-Proposal &amp; Roadmap Process
+            <li class="fragment">JEP - JDK Enhancement-Proposal &amp; Roadmap Process
               <ul>
-                <li>Still dominated by Oracle:</li>
-                <li>requires endorsement and funding by <a href="http://openjdk.java.net/bylaws#group-lead">Group Leads</a></li>
-                <li>The <a href="http://openjdk.java.net/bylaws#openjdk-lead">OpenJDK Lead</a>
+                <li class="fragment">Still dominated by Oracle:</li>
+                <li class="fragment">Requires endorsement and funding by <a href="http://openjdk.java.net/bylaws#group-lead">Group Leads</a></li>
+                <li class="fragment">The <a href="http://openjdk.java.net/bylaws#openjdk-lead">OpenJDK Lead</a>
                   (appointed by Oracle) ultimately<br/> decides which JEPs to include into the Roadmap.</li>
               </ul>
             </li>
-            <li>Three kinds of JEPs: SE, JDK, Implementation</li>
+            <li class="fragment">Three kinds of JEPs: <em><b>SE</b></em> - <em><b>JDK</b></em> - <em><b>Implementation</b></em>
+            </li>
           </ul>
         </section>
 
 
         <section class="demo">
-
+<!--
 <div style="writing-mode: sideways-lr; font-size: 30pt; font-weight: bold; line-height: 200%; transform: translateY(295%); margin-bottom: -9%;">Java 9</div>
+-->
+<h2 style="font-size: 30pt; font-weight: bold; margin: -10px 0 -10px 0;">Java 9</h2>
 
-	    <table style="font-size: 10.5pt; display: inline; padding: 0 6em 0 0; border: none;">
+	    <table style="font-size: 10pt; display: inline; padding: 0 1.5em 0 0; border: none;">
 	      <tbody>
 
 <tr><td>102: <a href="http://openjdk.java.net/jeps/102">Process API Updates</a></td></tr>
@@ -321,7 +386,7 @@
 
               </tbody>
             </table>
-	    <table style="font-size: 10.5pt; display: inline; padding: 0 6em 0 0; border: none;">
+	    <table style="font-size: 10pt; display: inline; padding: 0 1.5em 0 0; border: none;">
 	      <tbody>
 
 
@@ -358,7 +423,7 @@
 
               </tbody>
             </table>
-	    <table style="font-size: 10.5pt; display: inline; padding: 0 0 0 0; border: none;">
+	    <table style="font-size: 10pt; display: inline; padding: 0 0 0 0em; border: none;">
 	      <tbody>
 
 
@@ -400,10 +465,12 @@
         </section>
 
         <section class="demo">
-
+<!---
 <div style="writing-mode: sideways-lr; font-size: 30pt; font-weight: bold; line-height: 200%; transform: translateY(295%); margin-bottom: -9%;">Java 9</div>
+-->
+<h2 style="font-size: 30pt; font-weight: bold; margin: -10px 0 -10px 0;">Java 9</h2>
 
-	    <table style="font-size: 10.5pt; display: inline; padding: 0 6em 0 0; border: none;">
+	    <table style="font-size: 10pt; display: inline; padding: 0 1.5em 0 0; border: none;">
 	      <tbody>
 
 <tr class="JEP_SE            "><td>102: <a href="http://openjdk.java.net/jeps/102">Process API Updates</a></td></tr>
@@ -439,7 +506,7 @@
 
               </tbody>
             </table>
-	    <table style="font-size: 10.5pt; display: inline; padding: 0 6em 0 0; border: none;">
+	    <table style="font-size: 10pt; display: inline; padding: 0 1.5em 0 0; border: none;">
 	      <tbody>
 
 <tr class="JEP_Implementation"><td>233: <a href="http://openjdk.java.net/jeps/233">Generate Run-Time Compiler Tests Automatically</a></td></tr>
@@ -475,7 +542,7 @@
 
               </tbody>
             </table>
-	    <table style="font-size: 10.5pt; display: inline; padding: 0 0 0 0; border: none;">
+	    <table style="font-size: 10pt; display: inline; padding: 0 0 0 0; border: none;">
 	      <tbody>
 
 <tr class="JEP_SE            "><td>266: <a href="http://openjdk.java.net/jeps/266">More Concurrency Updates</a></td></tr>
@@ -586,22 +653,22 @@
 
 
         <section>
-          <h2>Preview Features &amp; Incubator Modules</h2>
+          <h3>Preview Features &amp; Incubator Modules</h3>
 
           <ul>
-              <li><a href="http://openjdk.java.net/jeps/11">JEP 11: Incubator Modules</a>
+              <li class="fragment"><a href="http://openjdk.java.net/jeps/11">JEP 11: Incubator Modules</a>
                 <ul>
-                  <li>Ship non-final APIs to developers to get feedback</li>
-                  <li>Use <code>jdk.incubator</code> prefix for modules and exported packages</li>
-                  <li>API must be either finalized, substantially improved or removed in the next release</li>
-                  <li><b>Not part of the Java SE standard!</b></li>
+                  <li class="fragment">Ship non-final APIs to developers to get feedback</li>
+                  <li class="fragment">Modules/Packages in <code>jdk.incubator</code></li>
+                  <li class="fragment">API must be finalized, substantially improved or removed</li>
+                  <li class="fragment"><b>Not part of the Java SE standard!</b></li>
                </ul>
               </li>
-              <li><a href="http://openjdk.java.net/jeps/12">JEP 12: Preview Language and VM Features</a>
+              <li class="fragment"><a href="http://openjdk.java.net/jeps/12">JEP 12: Preview Language and VM Features</a>
                 <ul>
-                  <li>Fully specified, fully implemented, yet impermanent features</li>
-                  <li><b>Part of Java SE platform</b>, checked by the corresponding TCK</li>
-                  <li>Disabled by default (use <code>--enable-preview</code> flag)</li>
+                  <li class="fragment">Fully specified and implemented, yet impermanent</li>
+                  <li class="fragment"><b>Part of Java SE</b>, checked by the corresponding TCK</li>
+                  <li class="fragment">Disabled by default (use <code>--enable-preview</code> flag)</li>
                 </ul>
               </li>
             </ul>
@@ -617,7 +684,7 @@
             <li class="fragment"><a href="http://openjdk.java.net/legal/gplv2+ce.html">GPLv2 plus Classpath Exception</a></li>
             <li class="fragment">"Source-only" project (until Java 8)
               <ul>
-                <li class="fragment">Since Java 9 binaries for Linux/x64, MacOS, Windows <br/><span class="fragment"> &#8658; Two updates only!</span></li>
+                <li class="fragment">Since Java 9 binaries for Linux, MacOS, Windows <br/><span class="fragment"> &#8658; Two updates only!</span></li>
               </ul>
             </li>
             <li class="fragment">Binary distributions from various vendors</li>
@@ -645,8 +712,8 @@
           <ul class="larger">
             <li class="fragment">Derived from Open JDK
               <ul>
-                <li class="fragment">with non - Java SE addons (e.g. JavaFX, WebStart)</li>
-                <li class="fragment">and <em>commercial features</em> (e.g. Flight Recorder, Mission Control)</li>
+                <li class="fragment">non - Java SE addons (e.g. JavaFX, WebStart)</li>
+                <li class="fragment"><em>commercial features</em><br/> (e.g. FlightRecorder, MissionControl)</li>
               </ul>
             </li>
             <li class="fragment">Under <a href="https://www.oracle.com/technetwork/java/javase/terms/license/index.html">Oracle Binary Code License</a> (until 8u202)
@@ -669,7 +736,7 @@
         <section>
           <h1>Java Versioning</h1>
 
-          <ul class="larger">
+          <ul>
             <li>Good old days: 6, 7, 8, but <a href="https://www.oracle.com/technetwork/java/javase/overview/jdk-version-number-scheme-1918258.html">Updates Version scheme</a> complex:
               <ul>
                 <li class="fragment" data-fragment-index="1">Limited update releases<span class="fragment" data-fragment-index="2" style="font-weight: bold;">, Critical Patch Updates<span  class="fragment" data-fragment-index="3" style="font-weight: normal; font-style: italic;">, Patch Set Update</span></span><br/>
@@ -677,19 +744,19 @@
                 </li>
               </ul>
             </li>
-            <li><a href="https://openjdk.java.net/jeps/223">JEP 223: New Version-String Scheme</a>
+            <li class="fragment" data-fragment-index="4"><a href="https://openjdk.java.net/jeps/223">JEP 223: New Version-String Scheme</a>
               <ul>
                 <li>9, 9.0.1, 9.0.4</li>
               </ul>
             </li>
-            <li><a href="https://openjdk.java.net/jeps/322">JEP 322: Time-Based Release Versioning</a>
+            <li class="fragment" data-fragment-index="5"><a href="https://openjdk.java.net/jeps/322">JEP 322: Time-Based Release Versioning</a>
               <ul>
-                <li>Introduced <code>java.vendor.version</code> &amp; the notion of LTS</li>
-                <li>10 (18.3), 10.0.1 (18.3), 10.0.2 (18.3)</li>
-                <li>11 LTS (18.9), 11.0.1 LTS (18.9), 10.0.2 LTS (18.9)</li>
+                <li class="fragment" data-fragment-index="6">Introduced <code>java.vendor.version</code> <span class="fragment" data-fragment-index="7">&amp; the notion of LTS</span></li>
+                <li><span class="fragment" data-fragment-index="5">10</span> <span class="fragment" data-fragment-index="6">(18.3)</span>, <span class="fragment" data-fragment-index="5">10.0.1</span> <span class="fragment" data-fragment-index="6">(18.3)</span>, <span class="fragment" data-fragment-index="5">10.0.2</span> <span class="fragment" data-fragment-index="6">(18.3)</span></li>
+                <li><span class="fragment" data-fragment-index="5">11</span> <span class="fragment" data-fragment-index="7">LTS</span> <span class="fragment" data-fragment-index="6">(18.9)</span>, <span class="fragment" data-fragment-index="5">11.0.1</span> <span class="fragment" data-fragment-index="7">LTS</span> <span class="fragment" data-fragment-index="6">(18.9)</span>, <span class="fragment" data-fragment-index="5">11.0.2</span> <span class="fragment" data-fragment-index="7">LTS</span> <span class="fragment" data-fragment-index="6">(18.9)</span></li>
               </ul>
             </li>
-            <li><a href="https://bugs.openjdk.java.net/browse/JDK-8216383">8216383: Remove the system property "java.vendor.version"</a></li>
+            <li class="fragment" data-fragment-index="8"><a href="https://bugs.openjdk.java.net/browse/JDK-8216383">8216383: Remove the system property "java.vendor.version"</a></li>
           </ul>
         </section>
 
@@ -700,26 +767,26 @@
             <pre class="big noshadow" style="height:100%; margin: 0;" data-trim="true">
               <code class="terminal" data-trim="true" data-noescape="true" style="height:100%">
 $ ./oraclejdk-11/bin/java -version
-java version "11" 2018-09-25
-Java(TM) SE Runtime Environment 18.9 (build 11+28)
-Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11+28, mixed mode)
-$ ./oraclejdk-11.0.2/bin/java -version
-java version "11.0.2" 2019-01-15 LTS
-Java(TM) SE Runtime Environment 18.9 (build 11.0.2+9-LTS)
-Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.2+9-LTS, mixed mode)
+<span class="fragment" data-fragment-index="1"><span class="fragment highlight-current-border" data-fragment-index="2">java</span> version "11" 2018-09-25</span> <span class="fragment highlight-current-border" data-fragment-index="6">&nbsp;&nbsp;&nbsp;</span>
+<span class="fragment" data-fragment-index="3">Java(TM) SE Runtime Environment <span class="fragment highlight-current-border" data-fragment-index="4">18.9</span> (build 11+28)</span>
+<span class="fragment" data-fragment-index="5">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11+28, mixed mode)</span>
+<span class="fragment" data-fragment-index="7">$ ./oraclejdk-11.0.2/bin/java -version</span>
+<span class="fragment" data-fragment-index="8">java version "11.0.2" 2019-01-15 <span class="fragment highlight-current-border" data-fragment-index="9">LTS</span>
+Java(TM) SE Runtime Environment 18.9 (build 11.0.2+9-<span class="fragment highlight-current-border" data-fragment-index="9">LTS</span>)
+Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.2+9-<span class="fragment highlight-current-border" data-fragment-index="9">LTS</span>, mixed</span>
               </code>
             </pre>
 
             <pre class="big noshadow" style="height:100%; margin: 0;" data-trim="true">
               <code class="terminal" data-trim="true" data-noescape="true" style="height:100%">
 $ ./openjdk-11/bin/java -version
-openjdk version "11" 2018-09-25
-OpenJDK Runtime Environment 18.9 (build 11+28)
-OpenJDK 64-Bit Server VM 18.9 (build 11+28, mixed mode)
-$ ./openjdk-11.0.2/bin/java -version
-openjdk version "11.0.2" 2019-01-15
+<span class="fragment" data-fragment-index="1"><span class="fragment highlight-current-border" data-fragment-index="2">openjdk</span> version "11" 2018-09-25</span>
+<span class="fragment" data-fragment-index="3">OpenJDK Runtime Environment <span class="fragment highlight-current-border" data-fragment-index="4">18.9</span> (build 11+28)</span>
+<span class="fragment" data-fragment-index="5">OpenJDK 64-Bit Server VM 18.9 (build 11+28, mixed mode)</span>
+<span class="fragment" data-fragment-index="7">$ ./openjdk-11.0.2/bin/java -version                             </span>
+<span class="fragment" data-fragment-index="8">openjdk version "11.0.2" 2019-01-15
 OpenJDK Runtime Environment 18.9 (build 11.0.2+9)
-OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
+OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)</span>
               </code>
             </pre>
 
@@ -727,11 +794,18 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
 
 
         <section>
-          <h1>Java Release &amp; OpenJDK Support Model</h1>
+          <h2>Java / OpenJDK Release Model</h2>
 
           <ul class="larger">
-            <li>short-term, medium-term, long-term support release</li>
-            <li>security updates / Vulnerability Group</li>
+            <li class="fragment">A new Java (i.e. "<em>Feature</em>") Release every 6 month</li>
+            <li class="fragment">"<em>Updates</em>" a month later &amp; every 3 months thereafter
+              <ul>
+                <li class="fragment">OpenJDK: at least two updates (Short Term Support)</li>
+                <li class="fragment">Implementers my choose (Mid-/Long-Term Support)</li>
+                <li class="fragment">Contain Security / Bug Fixes &amp; Enhancements</li>
+              </ul>
+            </li>
+            <li class="fragment">OpenJDK Vulnerability Group coordinates Security Fixes</li>
           </ul>
         </section>
 
@@ -748,8 +822,8 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
             <li>Java 7 to 11</li>
             <li>First OpenJDK "build harness"</li>
             <li>Base of most Linux OpenJDK packages</li>
-            <li>Extra features (e.g. Shenandoah, IcedTea-Web) and platforms (e.g Aarch64)</li>
-            <li>Linux and <a href="https://developers.redhat.com/products/openjdk/download/">Windows</a>support</li>
+            <li>Extra features (e.g. Shenandoah, IcedTea-Web)<br/> and platforms (e.g Aarch64)</li>
+            <li><a href="https://developers.redhat.com/products/openjdk/download/">Windows</a> version available</li>
           </ul>
         </section>
 
@@ -759,7 +833,7 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
 
           <ul class="larger">
             <li>Maintained by the <a href="https://adoptopenjdk.net/about.html">AdoptOpenJDK Community</a></li>
-            <li>Prebuilt OpenJDK/HotSpot and OpenJDK/OpenJ9 binaries</li>
+            <li>Prebuilt HotSpot and OpenJ9 binaries</li>
             <li>Java 8 to 11</li>
             <li>Linux, Windows, MacOS, Solaris, AIX</li>
             <li>x64, x64, Aarch64, Sparc, s390x, ppc64le</li>
@@ -770,13 +844,13 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
 
 
         <section>
-          <h1><a href="https://www.azul.com/products/zulu-enterprise/">Zulu Enterprise</a>
-            &amp; <a href="https://www.azul.com/products/zulu-embedded/">Zulu Embedded</a></h1>
+          <h2><a href="https://www.azul.com/products/zulu-enterprise/">Zulu Enterprise</a>
+            &amp; <a href="https://www.azul.com/products/zulu-embedded/">Zulu Embedded</a></h2>
 
           <ul class="larger">
             <li>Maintained by Azul (commercial support available)</li>
             <li>Java 6 to 11 (with OpenFX)</li>
-            <li>Linux, Windows, MacOS, Solaris, QNX</li>
+            <li>Linux, Alpine, Windows, MacOS, Solaris, QNX</li>
             <li>x64, x64, SPARC, ARM, Aarch64, Mips, ppc32</li>
             <li>LTS and MTS (<a href="https://www.azul.com/products/azul_support_roadmap/">Medium Term Support</a>)</li>
             <li><em>Private source</em> development model</li>
@@ -785,7 +859,7 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
 
 
         <section>
-          <h1><a href="https://aws.amazon.com/corretto/">Coretto</a></h1>
+          <h1><a href="https://aws.amazon.com/corretto/">Corretto</a></h1>
 
           <ul class="larger">
             <li>Maintained by Amazon
@@ -806,7 +880,7 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
           <ul class="larger">
             <li>Maintained by Bell-Soft (commercial support available)</li>
             <li>Java 8 to 11 (with OpenFX)</li>
-            <li>Linux, Windows, MacOS, Solaris</li>
+            <li>Linux, Alpine, Windows, MacOS, Solaris</li>
             <li>x64, x64, SPARC, ARM, Aarch6</li>
           </ul>
         </section>
@@ -824,7 +898,7 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
             <li>Java 10, 11, ...</li>
             <li>Linux, Windows, MacOS</li>
             <li>x64, ppc64, ppc64le</li>
-            <li>Open GitHub repo with a few add-ons and fixes and downports</li>
+            <li>GitHub repo with a few add-ons and fixes</li>
           </ul>
         </section>
 
@@ -833,12 +907,12 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
           <h1>Others</h1>
 
           <ul class="larger">
-            <li><a href="https://www.graalvm.org/">Graal/Substrate VM</a></li>
-            <li><a href="https://www.jikesrvm.org/">Jikes RVM</a></li>
-            <li><a href="http://www.cacaojvm.org/">Cacao</a></li>
-            <li><a href="http://jamvm.sourceforge.net/">JamVM</a></li>
-            <li><a href="http://harmony.apache.org/">Apache Harmony</a></li>
-            <li>Wiki "<a href="https://en.wikipedia.org/wiki/List_of_Java_virtual_machines">List of Java Virtual Machines</a>"</li>
+            <li class="fragment" data-fragment-index="1"><a href="https://www.graalvm.org/">Graal / Substrate VM</a></li>
+            <li class="fragment" data-fragment-index="2"><a href="https://www.jikesrvm.org/">Jikes RVM</a></li>
+            <li class="fragment" data-fragment-index="2"><a href="http://www.cacaojvm.org/">Cacao</a></li>
+            <li class="fragment" data-fragment-index="2"><a href="http://jamvm.sourceforge.net/">JamVM</a></li>
+            <li class="fragment" data-fragment-index="2"><a href="http://harmony.apache.org/">Apache Harmony</a></li>
+            <li class="fragment" data-fragment-index="3">Wiki "<a href="https://en.wikipedia.org/wiki/List_of_Java_virtual_machines">List of Java Virtual Machines</a>"</li>
           </ul>
         </section>
 
@@ -847,23 +921,35 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
           <h1>Commercial JDKs</h1>
 
           <ul class="larger">
-            <li><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle JDK</a></li>
-            <li><a href="https://www.ibm.com/developerworks/java/jdk/">IBM Java SDK</a> (IBM J9)</li>
-            <li><a href="https://tools.hana.ondemand.com/#cloud">SAP JVM</a></li>
-            <li><a href="https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=HPUXJAVAHOME">HP JDK</a></li>
-            <li><a href="https://www.excelsiorjet.com/">Excelsior JET</a></li>
-            <li><a href="https://www.aicas.com/cms/en/JamaicaVM">Jamaika VM</a></li>
+            <li class="fragment" data-fragment-index="1"><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle JDK</a></li>
+            <li class="fragment" data-fragment-index="1"><a href="https://www.ibm.com/developerworks/java/jdk/">IBM Java SDK</a> (IBM J9)</li>
+            <li class="fragment" data-fragment-index="1"><a href="https://tools.hana.ondemand.com/#cloud">SAP JVM</a></li>
+            <li class="fragment" data-fragment-index="1"><a href="https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=HPUXJAVAHOME">HP JDK</a></li>
+            <li class="fragment" data-fragment-index="2"><a href="https://www.excelsiorjet.com/">Excelsior JET</a></li>
+            <li class="fragment" data-fragment-index="3"><a href="https://www.aicas.com/cms/en/JamaicaVM">Jamaica VM</a></li>
           </ul>
         </section>
 
 
         <section>
-          <h1>How to choose your JDK?</h1>
+          <h2>How to choose your favorite JDK?</h2>
 
           <ul class="larger">
-            <li>Supported platforms (Linux OS/GlibC)</li>
-            <li>Trust, Support, Maintenance</li>
+            <li class="fragment">Supported Java versions</li>
+            <li class="fragment">Supported platforms (Linux OS/GlibC)</li>
+            <li class="fragment">Support &amp; Maintenance time frames</li>
+            <li class="fragment">Free vs. Paid</li>
+            <li class="fragment">OpenJDK involvement / Openness</li>
           </ul>
+        </section>
+
+
+        <section>
+          <h2>JDK 11 Fix Ratio</h2>
+
+	  <img class="plain" data-src="images/jdk11_ga_fixratio.png.jpeg" alt="OpenJDK Fix Ratio"/>
+          <p style="font-size: smaller;"><a href="https://blogs.oracle.com/java-platform-group/building-jdk-11-together">(c) Dalibor Topic, "Building JDK 11 Together"</a></p>
+
         </section>
 
 
@@ -871,19 +957,23 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
           <h1>Summary</h1>
 
           <ul class="larger">
-            <li>Java OpenJDK is alive and kicking!</li>
-            <li>You have the choice which distribution to use!
+            <li><span class="fragment highlight-line-through" style="text-decoration-style: wavy;" data-fragment-index="1">Java</span> <span class="fragment popup" data-fragment-index="1">OpenJDK</span> is alive and kicking!</li>
+            <li class="fragment" data-fragment-index="2">You have the choice which distribution to use!</li>
+            <li class="fragment" data-fragment-index="3">Competition is good <span class="fragment" data-fragment-index="4">- Collabortion as well :)</span></li>
+            <li class="fragment" data-fragment-index="5">A proprietary JCK will become dispensable:
               <ul>
-                <li>Support vs. Maintenance</li>
-              </ul>
-            </li>
-            <li>A proprietary JCK will become dispensable:
-              <ul>
-                <li>Java is a mature platform</li>
-                <li>OpenJDK class library used everywhere</li>
+                <li class="fragment" data-fragment-index="6">Java is a mature platform</li>
+                <li class="fragment" data-fragment-index="7">OpenJDK class library used everywhere</li>
               </ul>
             </li>
           </ul>
+        </section>
+
+
+        <section>
+
+          <h3 style="text-transform: none;"><a href="https://simonis.github.io/FOSDEM2019">https://simonis.github.io/FOSDEM2019</a></h3>
+
         </section>
 
 <!--
@@ -904,10 +994,10 @@ short-term, mid-term, long-term support release, security updates. Oracle Contri
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        //width: 1024,
-        //height: 768,
-        width: 1280,
-        height: 720,
+        width: 1024,
+        height: 768,
+        //width: 1280,
+        //height: 720,
         //width: 1366,
         //height: 768,
         //width: 1920,
@@ -978,5 +1068,17 @@ hljs.initHighlightingOnLoad(); } },
  -->
 <!--  LocalWords:  Korn JBS AWT JIT RFR AIX Roadmap JCP JSR JEPs GCs
  -->
-<!--  LocalWords:  JITs EE dev libs
+<!--  LocalWords:  JITs EE dev libs th ffb keyframes popup eval defun
+ -->
+<!--  LocalWords:  setq inputStr substring resultStr concat kbd ia VM
+ -->
+<!--  LocalWords:  vhs API addons JavaFX WebStart FlightRecorder LTS
+ -->
+<!--  LocalWords:  MissionControl Aarch OpenJ Prebuilt HotSpot Sparc
+ -->
+<!--  LocalWords:  Solaris ppc le OpenFX QNX Mips MTS Corretto GitHub
+ -->
+<!--  LocalWords:  Liberica SapMachine Jikes RVM JamVM SDK GlibC
+ -->
+<!--  LocalWords:  Dalibor
  -->
